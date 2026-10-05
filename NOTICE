@@ -1,0 +1,11 @@
+VibeTake
+Copyright 2026 Sanjoy Ghosh
+
+This product includes software developed by third parties:
+
+- Playwright (https://github.com/microsoft/playwright), Copyright (c) Microsoft Corporation,
+  licensed under the Apache License, Version 2.0. The build lifts Playwright's injected script
+  unmodified into extension/dist/vendor/playwright-injected.js; its LICENSE and NOTICE travel
+  beside it as LICENSE.playwright and NOTICE.playwright.
+- fflate (https://github.com/101arrowz/fflate), Copyright (c) Arjun Barrett, licensed under the
+  MIT License; copied into extension/dist/vendor/fflate.js with its LICENSE.fflate.

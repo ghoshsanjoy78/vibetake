@@ -1,0 +1,12 @@
+node_modules/
+/dist/tests/
+/dist/extension/
+.DS_Store
+test-results/
+playwright-report/
+*.log
+.superpowers/
+.env.local
+# The service's pairing secret, minted beside the code.
+/config/
+.worktrees/

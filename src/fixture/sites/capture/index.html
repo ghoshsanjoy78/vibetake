@@ -1,0 +1,26 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>VibeTake fixture</title>
+<style>
+  body { font: 14px system-ui; margin: 24px; }
+  #nameless { width: 80px; height: 24px; background: #ddd; }
+</style>
+
+<button>Start</button>
+
+<!-- A click here is nameable by nothing: it must be listed as not captured, not silently lost. -->
+<div id="nameless"></div>
+
+<!-- Enter here submits with no button to click: the one action a step cannot express. -->
+<form onsubmit="event.preventDefault()"><input type="search" aria-label="Find"></form>
+
+<!-- A field inside a shadow root: its change event never reaches the window. -->
+<div id="shadow-host"></div>
+
+<a href="two.html">Next page</a>
+
+<script>
+  document.getElementById('shadow-host')
+    .attachShadow({ mode: 'open' })
+    .innerHTML = '<input aria-label="Nickname">';
+</script>

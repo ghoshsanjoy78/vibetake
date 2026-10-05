@@ -1,0 +1,50 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>VibeTake Capture</title>
+<link rel="stylesheet" href="ui.css">
+<style>body { background: var(--paper); width: 360px; } .card { width: auto; border: none; border-radius: 0; box-shadow: none; }</style>
+<div class="card">
+  <div class="head">
+    <svg class="mark" width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="32" fill="#1a1917"/><rect x="14" y="20" width="7" height="24" rx="3.5" fill="#fff"/><circle cx="32" cy="32" r="8" fill="#e5484d"/><rect x="43" y="20" width="7" height="24" rx="3.5" fill="#fff"/></svg>
+    <div class="title">VibeTake Capture</div>
+    <a id="settings-link" class="icon-link" href="#" title="Settings" aria-label="Settings">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+    </a>
+  </div>
+  <div class="body">
+    <div id="status" class="status">
+      <span class="dot" aria-hidden="true"></span>
+      <div class="text">
+        <p id="state" role="status">Not recording</p>
+        <p id="sub">Ready when you are</p>
+        <p id="media" role="status" hidden></p>
+      </div>
+      <span id="elapsed" hidden></span>
+    </div>
+    <p id="paused" class="note" role="status" hidden></p>
+    <p id="refusal" class="note" role="alert" hidden></p>
+    <p id="fault" class="note" role="alert" hidden></p>
+    <label class="toggle">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+      <span>Record my voice</span>
+      <input type="checkbox" id="voice" class="switch" checked>
+    </label>
+    <label class="toggle">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2"></rect></svg>
+      <span>Record my camera</span>
+      <input type="checkbox" id="camera" class="switch">
+    </label>
+    <button id="record" class="big"><i aria-hidden="true"></i>Record this tab</button>
+    <button id="stop" class="big" hidden><i aria-hidden="true"></i>Stop recording</button>
+  </div>
+  <div id="dropped-section" class="section" hidden>
+    <div class="section-head"><h2 id="dropped-heading">Not captured</h2></div>
+    <ul id="dropped"></ul>
+  </div>
+  <div class="section">
+    <div class="section-head"><h2>Recordings</h2><span id="count" class="count">0</span></div>
+    <p id="none">No recordings yet. Hit record to capture your first walkthrough.</p>
+    <ul id="bundles"></ul>
+  </div>
+</div>
+<script type="module" src="popup.js"></script>

@@ -1,0 +1,47 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>VibeTake fixture</title>
+<style>
+  body { font: 14px system-ui; margin: 24px; }
+  nav.narrow { display: none; }
+  @media (max-width: 700px) { nav.wide { display: none; } nav.narrow { display: block; } }
+  #dialog[hidden] { display: none; }
+  .stack { position: relative; display: inline-block; }
+  .overlay { position: absolute; inset: 0; background: rgba(0,0,0,.01); }
+</style>
+
+<nav class="wide"><button>Home</button></nav>
+<nav class="narrow"><button>Home</button></nav>
+
+<!-- The normal await case: the dialog appears 150ms after the click. -->
+<button id="new-comic">New Comic</button>
+<div id="dialog" hidden>
+  <input aria-label="Title">
+</div>
+
+<!-- Two namesakes in different containers, so nth is exercised for real. -->
+<section data-where="first"><button aria-label="Book now">Book</button></section>
+<section data-where="second"><button aria-label="Book now">Book</button></section>
+
+<input type="search" aria-label="Destination">
+
+<select aria-label="Stay category">
+  <option>Name</option>
+  <option>Price</option>
+</select>
+
+<div id="shadow-host"></div>
+
+<!-- Present but not actionable: resolution succeeds, the action must not hang. -->
+<button disabled>Publish</button>
+<span class="stack"><button id="covered">Buy</button><span class="overlay"></span></span>
+
+<script>
+  // 150ms, not 0: a step that waits for nothing proves nothing about awaits.
+  document.getElementById('new-comic').addEventListener('click', () => {
+    setTimeout(() => document.getElementById('dialog').removeAttribute('hidden'), 150);
+  });
+  document.getElementById('shadow-host')
+    .attachShadow({ mode: 'open' })
+    .innerHTML = '<button>Inside shadow</button>';
+</script>

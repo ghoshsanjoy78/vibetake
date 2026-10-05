@@ -1,0 +1,43 @@
+{
+  "name": "vibetake",
+  "version": "1.0.0",
+  "description": "Record a product demo in Chrome and get one zip with everything a polished demo video needs: screen, voice, camera, pointer-free stills at every click, and a word-timestamped transcript.",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "Sanjoy Ghosh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghoshsanjoy78/vibetake.git"
+  },
+  "homepage": "https://github.com/ghoshsanjoy78/vibetake#readme",
+  "bugs": {
+    "url": "https://github.com/ghoshsanjoy78/vibetake/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "bin": {
+    "vibetake": "./dist/src/cli.js"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit && tsc -p extension --noEmit",
+    "test": "tsc && vitest run",
+    "test:live": "playwright test",
+    "build": "tsc",
+    "build:extension": "node scripts/build-extension.mjs",
+    "serve": "node dist/src/cli.js serve"
+  },
+  "dependencies": {
+    "fflate": "^0.8.3",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/chrome": "^0.3.4",
+    "@types/node": "^24.6.0",
+    "playwright": "^1.56.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

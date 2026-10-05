@@ -1,0 +1,13 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>VibeTake Capture &mdash; Settings</title>
+<link rel="stylesheet" href="ui.css">
+<body class="page">
+<h1>VibeTake Capture &mdash; Settings</h1>
+<p>Run <code>vibetake serve</code> on this machine from the directory that holds your <code>.env.local</code>. When you press Stop, the extension sends the recording's voice track to that service, which transcribes it with your key and hands the transcript back for the zip. The extension pairs with the service by itself; the key never enters the browser, and the screen video and the frames never leave it.</p>
+<p>Nothing to set up unless the service runs on another port.</p>
+<label for="url">Service URL</label>
+<input id="url" value="http://127.0.0.1:7741" spellcheck="false">
+<button id="connect">Connect</button>
+<p id="result" role="status"></p>
+<script type="module" src="options.js"></script>
